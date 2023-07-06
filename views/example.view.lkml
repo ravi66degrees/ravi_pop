@@ -52,11 +52,11 @@ view: example {
 
 
   dimension: event_date {
-    sql: ${TABLE}.created_at;;
+    sql: ${created_date};;
     # Important. If this field only contains a date, with no time, this must be set to no. You will have major problems
     # if a date such as 2022-01-01 is converted to local time. Looker will think of this as 2022-01-01 00:00:00 and in the case
     # of a -5 conversion, would turn that into 2021-12-31 19:00:00.
-    convert_tz: yes
+    convert_tz: no
 
     # --- Do Not Edit Below this Line ----
     type: date_raw
@@ -68,7 +68,7 @@ view: example {
   parameter: convert_tz {
     # Instructions: If your date is just a date with no time, set this value to no. If your date is a date with time, set to yes. It is VERY important that you do
     # not set this value to yes if you only have a date. Bad things will happen.
-    default_value: "yes"
+    default_value: "no"
 
     # --- Do Not Edit Below this Line ----
     type: yesno
@@ -92,7 +92,7 @@ view: example {
 
   dimension: origin_event_date {
     # Instructions: Replace with the name of the origin date column
-    sql: created_at;;
+    sql: ${created_date};;
     # --- Do Not Edit Below this Line ----
     type: string
     hidden: yes
