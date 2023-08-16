@@ -2,6 +2,7 @@ connection: "looker_partner_demo"
 
 # include all the views
 include: "/views/**/*.view.lkml"
+include: "/dashboards/*.dashboard.lookml"
 
 datagroup: ravi_pop_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
